@@ -1,4 +1,3 @@
-# Online-Savings-Loan-Cooperative-System
 # 🏦 Online Savings & Loan Cooperative System – Project Overview
 
 ## 1. Project Overview
@@ -33,47 +32,10 @@ Admins can manage members, approve loans, and generate financial reports.
 
 ---
 
-cooperative-system/
-│
-├── index.html # Homepage
-├── login.html # Login page
-├── register.html # Registration page
-│
-├── dashboard/ # User/Admin dashboards
-│ ├── member.html # Member dashboard
-│ ├── admin.html # Admin dashboard
-│ ├── savings.html # Savings module
-│ └── loans.html # Loan module
-│
-├── includes/ # Reusable PHP includes
-│ ├── header.php
-│ ├── footer.php
-│ ├── navbar.php
-│ ├── auth.php # Authentication functions
-│ └── db.php # Database connection
-│
-├── actions/ # Form actions / backend logic
-│ ├── register_action.php
-│ ├── login_action.php
-│ ├── deposit_action.php
-│ ├── withdraw_action.php
-│ ├── loan_request_action.php
-│ ├── loan_approve_action.php
-│ └── repay_action.php
-│
-├── css/
-│ └── style.css # All styles
-│
-├── js/
-│ └── app.js # All frontend logic
-│
-└── database/
-└── coop.sql # Database structure
-
 
 ---
 
-## 4. Database Design
+## 3. Database Design
 
 ### members
 | Field | Type | Description |
@@ -116,7 +78,7 @@ cooperative-system/
 
 ---
 
-## 5. Frontend Design
+## 4. Frontend Design
 
 ### Homepage (index.html)
 - Welcome message  
@@ -149,7 +111,7 @@ cooperative-system/
 
 ---
 
-## 6. Development Notes
+## 5. Development Notes
 - **Frontend-first approach:** Build HTML/CSS/JS pages before connecting PHP backend.  
 - **Backend:** Handle database operations, authentication, transactions.  
 - **Security:**  
@@ -159,7 +121,7 @@ cooperative-system/
 
 ---
 
-## 7. Suggested Workflow
+## 6. Suggested Workflow
 1. Build frontend pages (HTML, CSS, JS)  
 2. Build PHP backend for authentication  
 3. Connect frontend forms to PHP actions  
@@ -167,8 +129,4 @@ cooperative-system/
 5. Build admin panel & reports  
 6. Test system thoroughly  
 
----
-
-
-## 3. Folder Structure
 
