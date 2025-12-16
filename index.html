@@ -4,39 +4,142 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cooperative System - Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
 </head>
 <body>
-    <header>
-        <h1>Online Savings & Loan Cooperative</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="login.html">Login</a>
-            <a href="register.html">Register</a>
-        </nav>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-handshake"></i>
+                <h1>Online Savings & Loan <span>Cooperative</span></h1>
+            </div>
+            <nav class="main-nav">
+                <a href="index.html" class="active">Home</a>
+                <a href="login.html">Login</a>
+                <a href="register.html">Register</a>
+                <a href="#features">Features</a>
+                <a href="#about">About</a>
+            </nav>
+        </div>
     </header>
 
     <main>
         <section class="hero">
-            <h2>Welcome to your Cooperative Management System</h2>
-            <p>Manage your savings and loans easily and securely online.</p>
+            <div class="container">
+                <div class="hero-content">
+                    <h2>Welcome to Your Cooperative Management System</h2>
+                    <p>Manage your savings and loans easily and securely online. Join our growing community of members.</p>
+                    <div class="hero-buttons">
+                        <a href="register.html" class="btn btn-primary">Join Now</a>
+                        <a href="login.html" class="btn btn-secondary">Member Login</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Financial Planning">
+                </div>
+            </div>
         </section>
 
-        <section class="features">
-            <h3>System Features</h3>
-            <ul>
-                <li>Register and manage your account</li>
-                <li>Deposit and withdraw savings</li>
-                <li>Apply for loans and track repayment</li>
-                <li>Admin panel for managing members and reports</li>
-            </ul>
+        <section id="features" class="features">
+            <div class="container">
+                <h2>System Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <h3>Easy Registration</h3>
+                        <p>Become a member in minutes with our simple online registration process.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-piggy-bank"></i>
+                        </div>
+                        <h3>Savings Management</h3>
+                        <p>Track your savings, set goals, and watch your money grow with competitive interest rates.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-hand-holding-usd"></i>
+                        </div>
+                        <h3>Loan Services</h3>
+                        <p>Apply for loans online, track your applications, and manage repayments easily.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Financial Reports</h3>
+                        <p>Access detailed reports and statements to track your financial progress.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <h2>Why Choose Our Cooperative?</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Secure & Reliable</h3>
+                        <p>Your financial security is our top priority. We use bank-level encryption and security measures to protect your data.</p>
+                        
+                        <h3>Member-Focused</h3>
+                        <p>As a cooperative, we exist to serve our members. We offer better rates and personalized service than traditional banks.</p>
+                        
+                        <h3>24/7 Access</h3>
+                        <p>Manage your finances anytime, anywhere through our secure online portal.</p>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <h3>1,500+</h3>
+                            <p>Active Members</p>
+                        </div>
+                        <div class="stat">
+                            <h3>$5M+</h3>
+                            <p>Total Savings</p>
+                        </div>
+                        <div class="stat">
+                            <h3>98%</h3>
+                            <p>Member Satisfaction</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2025 Online Cooperative System</p>
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2023 Online Savings & Loan Cooperative. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact Us</a>
+            </div>
+        </div>
     </footer>
 
-    <script src="js/app.js"></script>
+    <script src="js/session.js"></script>
+    <script>
+        // Check if user is already logged in
+        document.addEventListener('DOMContentLoaded', function() {
+            if (sessionManager.isLoggedIn()) {
+                // Redirect to appropriate dashboard
+                const userType = sessionManager.getUserType();
+                if (userType === 'admin') {
+                    window.location.href = 'dashboard-admin.html';
+                } else {
+                    window.location.href = 'dashboard-member.html';
+                }
+            }
+        });
+    </script>
 </body>
 </html>

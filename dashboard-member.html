@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Dashboard - Cooperative System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-handshake"></i>
+                    <h2>Cooperative<span>System</span></h2>
+                </div>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="user-info" id="userInfo">
+                <!-- User info will be loaded by JavaScript -->
+            </div>
+            
+            <nav class="nav-menu">
+                <ul>
+                    <li class="active" data-section="overview"><a href="#"><i class="fas fa-home"></i> Overview</a></li>
+                    <li data-section="savings"><a href="#"><i class="fas fa-piggy-bank"></i> My Savings</a></li>
+                    <li data-section="loans"><a href="#"><i class="fas fa-hand-holding-usd"></i> My Loans</a></li>
+                    <li data-section="transactions"><a href="#"><i class="fas fa-exchange-alt"></i> Transactions</a></li>
+                    <li data-section="profile"><a href="#"><i class="fas fa-user"></i> My Profile</a></li>
+                    <li data-section="statements"><a href="#"><i class="fas fa-file-invoice-dollar"></i> Statements</a></li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <button id="logoutBtn" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+                <p class="version">v2.1.0</p>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="main-header">
+                <div class="header-left">
+                    <button class="menu-toggle" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1 id="dashboardTitle">Member Dashboard</h1>
+                    <p class="current-date" id="currentDate"></p>
+                </div>
+                
+                <div class="header-right">
+                    <div class="notification" id="notificationBell">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge" id="notificationCount">0</span>
+                    </div>
+                    <button class="btn btn-primary" id="quickActionBtn">
+                        <i class="fas fa-plus-circle"></i> Quick Action
+                    </button>
+                </div>
+            </header>
+
+            <!-- Dashboard Sections -->
+            <div class="dashboard-sections">
+                <!-- Overview Section (Default) -->
+                <section id="overviewSection" class="dashboard-section active">
+                    <div class="section-header">
+                        <h2>Financial Overview</h2>
+                        <p>Welcome back! Here's your financial summary.</p>
+                    </div>
+                    
+                    <div class="stats-grid" id="overviewStats">
+                        <!-- Stats will be loaded by JavaScript -->
+                    </div>
+                    
+                    <div class="content-grid">
+                        <div class="content-card">
+                            <div class="card-header">
+                                <h3>Recent Transactions</h3>
+                                <a href="#" class="view-all" data-section="transactions">View All</a>
+                            </div>
+                            <div class="card-body">
+                                <div class="transaction-list" id="recentTransactions">
+                                    <!-- Transactions will be loaded by JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="content-card">
+                            <div class="card-header">
+                                <h3>Active Loans</h3>
+                                <a href="#" class="btn btn-small" data-section="loans">View Details</a>
+                            </div>
+                            <div class="card-body">
+                                <div class="loan-summary" id="activeLoans">
+                                    <!-- Loans will be loaded by JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="content-card">
+                            <div class="card-header">
+                                <h3>Savings Progress</h3>
+                                <div class="savings-target" id="savingsTarget">Target: $30,000</div>
+                            </div>
+                            <div class="card-body">
+                                <div class="progress-container">
+                                    <div class="progress-info">
+                                        <p>Current Savings</p>
+                                        <p id="currentSavings">$0.00</p>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" id="savingsProgress"></div>
+                                    </div>
+                                    <div class="progress-percentage" id="savingsPercentage">0%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Savings Section -->
+                <section id="savingsSection" class="dashboard-section">
+                    <div class="section-header">
+                        <h2>My Savings</h2>
+                        <p>Manage your savings account</p>
+                    </div>
+                    
+                    <div class="savings-content" id="savingsContent">
+                        <!-- Savings content will be loaded by JavaScript -->
+                    </div>
+                </section>
+
+                <!-- Loans Section -->
+                <section id="loansSection" class="dashboard-section">
+                    <div class="section-header">
+                        <h2>My Loans</h2>
+                        <p>View and manage your loans</p>
+                    </div>
+                    
+                    <div class="loans-content" id="loansContent">
+                        <!-- Loans content will be loaded by JavaScript -->
+                    </div>
+                </section>
+
+                <!-- Transactions Section -->
+                <section id="transactionsSection" class="dashboard-section">
+                    <div class="section-header">
+                        <h2>Transaction History</h2>
+                        <p>View all your transactions</p>
+                    </div>
+                    
+                    <div class="transactions-content" id="transactionsContent">
+                        <!-- Transactions content will be loaded by JavaScript -->
+                    </div>
+                </section>
+
+                <!-- Profile Section -->
+                <section id="profileSection" class="dashboard-section">
+                    <div class="section-header">
+                        <h2>My Profile</h2>
+                        <p>Manage your account information</p>
+                    </div>
+                    
+                    <div class="profile-content" id="profileContent">
+                        <!-- Profile content will be loaded by JavaScript -->
+                    </div>
+                </section>
+
+                <!-- Statements Section -->
+                <section id="statementsSection" class="dashboard-section">
+                    <div class="section-header">
+                        <h2>Account Statements</h2>
+                        <p>Download your financial statements</p>
+                    </div>
+                    
+                    <div class="statements-content" id="statementsContent">
+                        <!-- Statements content will be loaded by JavaScript -->
+                    </div>
+                </section>
+            </div>
+
+            <!-- Footer -->
+            <footer class="dashboard-footer">
+                <p>&copy; 2023 Online Savings & Loan Cooperative. Member Dashboard.</p>
+                <div class="footer-links">
+                    <a href="#">Help Center</a>
+                    <a href="#">Contact Support</a>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <div class="modal" id="quickActionModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Quick Actions</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="actions-grid">
+                    <button class="action-btn" data-action="deposit">
+                        <i class="fas fa-plus-circle"></i>
+                        <span>Make Deposit</span>
+                    </button>
+                    <button class="action-btn" data-action="withdraw">
+                        <i class="fas fa-minus-circle"></i>
+                        <span>Withdraw Funds</span>
+                    </button>
+                    <button class="action-btn" data-action="applyLoan">
+                        <i class="fas fa-file-signature"></i>
+                        <span>Apply for Loan</span>
+                    </button>
+                    <button class="action-btn" data-action="statement">
+                        <i class="fas fa-download"></i>
+                        <span>Download Statement</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="actionModal">
+        <div class="modal-content">
+            <!-- Modal content will be loaded by JavaScript -->
+        </div>
+    </div>
+
+    <script src="js/session.js"></script>
+    <script src="js/dashboard-member.js"></script>
+</body>
+</html>
