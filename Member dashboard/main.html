@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cooperative System - Loan & Savings Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Mobile Overlay (for closing sidebar on mobile) -->
+    <div class="mobile-overlay"></div>
+    
+    <!-- Sidebar Navigation -->
+    <div class="sidebar" id="sidebar">
+        <div class="logo-section">
+            <div class="logo">CS</div>
+        </div>
+        
+        <div class="nav-links">
+            <a class="nav-item active" data-page="dashboard">
+                <i class="fas fa-home"></i>
+                <span>Dashboard</span>
+                <div class="nav-tooltip">Dashboard Overview</div>
+            </a>
+            <a class="nav-item" data-page="savings">
+                <i class="fas fa-piggy-bank"></i>
+                <span>Savings Accounts</span>
+                <div class="nav-tooltip">Manage your savings and deposits</div>
+            </a>
+            <a class="nav-item" data-page="loans">
+                <i class="fas fa-hand-holding-usd"></i>
+                <span>Loan Management</span>
+                <div class="nav-tooltip">View and manage your loans</div>
+            </a>
+            <a class="nav-item" data-page="transactions">
+                <i class="fas fa-exchange-alt"></i>
+                <span>Transactions</span>
+                <div class="nav-tooltip">View all transactions history</div>
+            </a>
+            <a class="nav-item" data-page="reports">
+                <i class="fas fa-chart-bar"></i>
+                <span>Financial Reports</span>
+                <div class="nav-tooltip">Generate financial reports</div>
+            </a>
+            <a class="nav-item" data-page="settings">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+                <div class="nav-tooltip">Account and system settings</div>
+            </a>
+        </div>
+        
+        <div style="padding: 20px; margin-top: auto; border-top: 1px solid var(--border-color);">
+            <div class="nav-item" id="helpBtn">
+                <i class="fas fa-question-circle"></i>
+                <span>Help & Support</span>
+                <div class="nav-tooltip">Get help and contact support</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Content Area -->
+    <div class="main-content" id="mainContent">
+        <!-- Top Header -->
+        <div class="top-header">
+            <!-- Hamburger Menu Button -->
+            <div class="menu-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <div class="page-title">
+                <div class="logo">
+                    <i class="fas fa-handshake"></i>
+                    <h2>Cooperative<span>System</span></h2>
+                </div><br>
+                <p id="pageSubtitle">Welcome back, Alex! Here's your financial overview.</p>
+            </div>
+            
+            <div class="profile-section">
+                <div class="notifications">
+                    <i class="far fa-bell notification-icon"></i>
+                    <span class="notification-badge">3</span>
+                </div>
+                
+                <div class="profile-info" id="profileToggle">
+                    <div class="profile-img">AJ</div>
+                    <div class="profile-details">
+                        <h3>Alex Johnson</h3>
+                        <p>Premium Member</p>
+                    </div>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                
+                <!-- Profile Dropdown -->
+                <div class="profile-dropdown" id="profileDropdown">
+                    <div class="dropdown-header">
+                        <div class="profile-img">AJ</div>
+                        <div>
+                            <h3>Alex Johnson</h3>
+                            <p>alex.johnson@example.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="dropdown-content">
+                        <div class="info-row">
+                            <div class="info-label">Username:</div>
+                            <div class="info-value">alexj2023</div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Email:</div>
+                            <div class="info-value">alex.johnson@example.com</div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Phone:</div>
+                            <div class="info-value">+251920051995</div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Address:</div>
+                            <div class="info-value">123 Main Street, Suite 400, San Francisco, CA 94107</div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Member Since:</div>
+                            <div class="info-value">January 15, 2021</div>
+                        </div>
+                    </div>
+                    
+                    <div class="dropdown-actions">
+                        <button class="dropdown-btn" id="editProfileBtn">Edit Profile</button>
+                        <button class="dropdown-btn logout" id="logoutBtn">Logout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Content Container -->
+        <div class="content-container">
+            <!-- Dashboard Page (default) -->
+            <div id="dashboard-page" class="page-content active">
+                <!-- Overview Cards -->
+                <div class="overview-cards">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Total Savings</h3>
+                            <div class="card-icon savings">
+                                <i class="fas fa-piggy-bank"></i>
+                            </div>
+                        </div>
+                        <div class="card-value">$24,580.75</div>
+                        <div class="card-trend positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+12.5% from last month</span>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Active Loans</h3>
+                            <div class="card-icon loans">
+                                <i class="fas fa-hand-holding-usd"></i>
+                            </div>
+                        </div>
+                        <div class="card-value">$15,250.00</div>
+                        <div class="card-trend negative">
+                            <i class="fas fa-arrow-down"></i>
+                            <span>3 loans active</span>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Monthly Transactions</h3>
+                            <div class="card-icon transactions">
+                                <i class="fas fa-exchange-alt"></i>
+                            </div>
+                        </div>
+                        <div class="card-value">$8,430.50</div>
+                        <div class="card-trend positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+8.2% from last month</span>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Available Balance</h3>
+                            <div class="card-icon balance">
+                                <i class="fas fa-wallet"></i>
+                            </div>
+                        </div>
+                        <div class="card-value">$9,330.75</div>
+                        <div class="card-trend positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+5.3% from last month</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recent Activity Table -->
+                <div class="recent-activity">
+                    <div class="section-header">
+                        <h2 class="section-title">Recent Transactions</h2>
+                        <button class="view-all" data-page="transactions">View All</button>
+                    </div>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Description</th>
+                                <th>Date</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Car Loan Payment</td>
+                                <td>May 15, 2023</td>
+                                <td>-$450.00</td>
+                                <td><span class="status-badge completed">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td>Monthly Savings Deposit</td>
+                                <td>May 12, 2023</td>
+                                <td>+$800.00</td>
+                                <td><span class="status-badge completed">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td>Personal Loan Application</td>
+                                <td>May 10, 2023</td>
+                                <td>+$5,000.00</td>
+                                <td><span class="status-badge pending">Pending</span></td>
+                            </tr>
+                            <tr>
+                                <td>Emergency Fund Withdrawal</td>
+                                <td>May 8, 2023</td>
+                                <td>-$1,200.00</td>
+                                <td><span class="status-badge completed">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td>Home Loan Interest</td>
+                                <td>May 5, 2023</td>
+                                <td>-$320.50</td>
+                                <td><span class="status-badge completed">Completed</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Savings Page (loads save.html content dynamically) -->
+            <div id="savings-page" class="page-content"></div>
+            
+            <!-- Loans Page (loads loan.html content dynamically) -->
+            <div id="loans-page" class="page-content"></div>
+            
+            <!-- Transactions Page (loads transactions.html content dynamically) -->
+            <div id="transactions-page" class="page-content"></div>
+            
+            <!-- Reports Page -->
+            <div id="reports-page" class="page-content">
+                <h2 class="section-title">Financial Reports</h2>
+                <p class="section-description">Generate and download comprehensive financial reports for your records, tax purposes, or financial planning.</p>
+                
+                <div class="loan-cards">
+                    <div class="loan-card">
+                        <div class="loan-header">
+                            <h3 class="loan-type">Monthly Statement</h3>
+                            <i class="fas fa-file-pdf" style="color: var(--danger-color); font-size: 24px;"></i>
+                        </div>
+                        <p>Detailed monthly statement of all transactions, balances, and interest earned/paid.</p>
+                        <div class="loan-actions">
+                            <button class="action-btn primary">Generate May 2023</button>
+                            <button class="action-btn secondary">View Previous</button>
+                        </div>
+                    </div>
+                    
+                    <div class="loan-card">
+                        <div class="loan-header">
+                            <h3 class="loan-type">Tax Report</h3>
+                            <i class="fas fa-file-invoice-dollar" style="color: var(--accent-color); font-size: 24px;"></i>
+                        </div>
+                        <p>Year-to-date interest earned and paid for tax preparation purposes.</p>
+                        <div class="loan-actions">
+                            <button class="action-btn primary">Generate 2023 Report</button>
+                            <button class="action-btn secondary">View 2022</button>
+                        </div>
+                    </div>
+                    
+                    <div class="loan-card">
+                        <div class="loan-header">
+                            <h3 class="loan-type">Net Worth Summary</h3>
+                            <i class="fas fa-chart-line" style="color: var(--primary-color); font-size: 24px;"></i>
+                        </div>
+                        <p>Comprehensive overview of your assets, liabilities, and net worth over time.</p>
+                        <div class="loan-actions">
+                            <button class="action-btn primary">Generate Report</button>
+                            <button class="action-btn secondary">View Trends</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Settings Page -->
+            <div id="settings-page" class="page-content">
+                <h2 class="section-title">Account Settings</h2>
+                <p class="section-description">Manage your account preferences, security settings, and notification preferences.</p>
+                
+                <div class="loan-cards">
+                    <div class="loan-card">
+                        <div class="loan-header">
+                            <h3 class="loan-type">Personal Information</h3>
+                            <i class="fas fa-user-edit" style="color: var(--primary-color); font-size: 24px;"></i>
+                        </div>
+                        <p>Update your personal details, contact information, and communication preferences.</p>
+                        <div class="loan-actions">
+                            <button class="action-btn primary">Edit Profile</button>
+                        </div>
+                    </div>
+                    
+                    <div class="loan-card">
+                        <div class="loan-header">
+                            <h3 class="loan-type">Security Settings</h3>
+                            <i class="fas fa-shield-alt" style="color: var(--accent-color); font-size: 24px;"></i>
+                        </div>
+                        <p>Change password, set up two-factor authentication, and manage security alerts.</p>
+                        <div class="loan-actions">
+                            <button class="action-btn primary">Change Password</button>
+                            <button class="action-btn secondary">2FA Settings</button>
+                        </div>
+                    </div>
+                    
+                    <div class="loan-card">
+                        <div class="loan-header">
+                            <h3 class="loan-type">Notification Preferences</h3>
+                            <i class="fas fa-bell" style="color: var(--warning-color); font-size: 24px;"></i>
+                        </div>
+                        <p>Control how and when you receive notifications about your accounts.</p>
+                        <div class="loan-actions">
+                            <button class="action-btn primary">Configure Notifications</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
