@@ -223,9 +223,8 @@ body {
 }
 
 .page-title {
-    display: flex;
+    width: 90%;
     align-items: center;
-    gap: 15px;
 }
 
 .page-title .logo {
@@ -255,7 +254,10 @@ body {
 .page-title p {
     color: var(--light-text);
     font-size: 14px;
-    margin-top: 4px;
+    margin-top: 10px;
+    display: flex;
+    width: 90%;
+    text-align: center;
 }
 
 /* Profile Section */
