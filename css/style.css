@@ -24,6 +24,8 @@ body {
     background-color: #f3f4f6;
     color: var(--dark);
     line-height: 1.6;
+    opacity: 1;
+    transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 .container {
@@ -48,6 +50,10 @@ body {
     padding: 1rem 1.5rem;
 }
 
+body.fade-out {
+    opacity: 0;
+    transform: translateX(-30px);
+}
 .logo {
     display: flex;
     align-items: center;

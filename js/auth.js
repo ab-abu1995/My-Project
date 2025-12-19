@@ -1,3 +1,28 @@
+document.addEventListener("DOMContentLoaded", () => {
+
+    const links = document.querySelectorAll("a");
+
+    links.forEach(link => {
+        // Only animate internal page links
+        if (link.getAttribute("href").includes(".html")) {
+            link.addEventListener("click", function (e) {
+                e.preventDefault();
+
+                const target = this.getAttribute("href");
+
+                document.body.classList.add("fade-out");
+
+                setTimeout(() => {
+                    window.location.href = target;
+                }, 400); // must match CSS transition time
+            });
+        }
+    });
+
+});
+
+
+
 // Authentication functions for Cooperative System
 
 // Show toast notification
